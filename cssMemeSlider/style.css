@@ -3,7 +3,7 @@ body {
 }
 
 .slider {
-
+    
     width: 466px;
     margin: auto;
     overflow: hidden;
@@ -12,12 +12,12 @@ body {
 .slides {
     display: flex;
     width: 100%;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease-in-out;
+    
 }
 
 .slides img {
     display: block;
-    max-width: 100%;
     max-width: 100%;
     object-fit: contain;
     
@@ -28,6 +28,8 @@ body {
     flex: 0 0 100%;
     justify-content: center;
     align-items: center;
+    background-color: #302f2f;
+    box-shadow: 0 5px 5px #1a1a1a;
 }
 
 input[name="slider-control"] {
@@ -55,50 +57,112 @@ input[name="slider-control"] {
 }
 
 .controls {
-    margin-top: 20px;
     display: flex;
-    gap: 10px;
-    float: right;
+    height: 20px;
+    /* gap: 5px; */
+    /* float: right; */
+    align-items: center;
+    /* width: 50%; */
 }
 
 .control {
-    position: relative;
     width: 10px;
     height: 10px;
     background-color: #6EA3CA;
     border-radius: 50%;
     cursor: pointer;
+    display: block;
 }
 
-.control::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    bottom: -5px;
-    left: -5px;
-    border-radius: 50%;
-    background: transparent;
+.control-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
 }
 
-.control:hover {
+/* .control-wrap label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer; 
+} */
+
+
+.control-wrap:hover .control {
     background-color: #ffffff; 
 }
 
-#slide1:checked ~ .controls label[for="slide1"]:hover,
-#slide2:checked ~ .controls label[for="slide2"]:hover,
-#slide3:checked ~ .controls label[for="slide3"]:hover,
-#slide4:checked ~ .controls label[for="slide4"]:hover,
-#slide5:checked ~ .controls label[for="slide5"]:hover {
+.control-wrap:active .control {
+    background-color: rgb(177, 177, 177);
+}
+
+
+#slide1:checked ~ .controls-and-captions .control-wrap:hover .control,
+#slide2:checked ~ .controls-and-captions .control-wrap:hover .control,
+#slide3:checked ~ .controls-and-captions .control-wrap:hover .control,
+#slide4:checked ~ .controls-and-captions .control-wrap:hover .control,
+#slide5:checked ~ .controls-and-captions .control-wrap:hover .control {
     box-shadow: inset 0 0 0 1px #ffffff;
 }
 
-#slide1:checked ~ .controls label[for="slide1"],
-#slide2:checked ~ .controls label[for="slide2"],
-#slide3:checked ~ .controls label[for="slide3"],
-#slide4:checked ~ .controls label[for="slide4"],
-#slide5:checked ~ .controls label[for="slide5"] {
+.slider input[id="slide1"]:checked ~ .controls-and-captions .controls label[for="slide1"] .control,
+.slider input[id="slide2"]:checked ~ .controls-and-captions .controls label[for="slide2"] .control,
+.slider input[id="slide3"]:checked ~ .controls-and-captions .controls label[for="slide3"] .control,
+.slider input[id="slide4"]:checked ~ .controls-and-captions .controls label[for="slide4"] .control,
+.slider input[id="slide5"]:checked ~ .controls-and-captions .controls label[for="slide5"] .control {
     background-color: transparent;
     box-shadow: inset 0 0 0 1px #6EA3CA;
 }
+
+.controls-and-captions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    margin-top: 20px;
+}
+.captions {
+    width: 50%;
+    overflow: hidden;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.caption-slide {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.caption {
+    width: 100%;
+    flex: 0 0 100%;
+    text-align: left;
+    line-height: 20px;
+}
+
+#slide1:checked ~ .controls-and-captions .captions .caption-slide {
+    transform: translateX(0%);
+}
+
+#slide2:checked ~ .controls-and-captions .captions .caption-slide {
+    transform: translateX(-100%);
+}
+
+#slide3:checked ~ .controls-and-captions .captions .caption-slide {
+    transform: translateX(-200%);
+}
+
+#slide4:checked ~ .controls-and-captions .captions .caption-slide {
+    transform: translateX(-300%);
+}
+
+#slide5:checked ~ .controls-and-captions .captions .caption-slide {
+    transform: translateX(-400%);
+}
+
 
