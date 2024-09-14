@@ -4,7 +4,7 @@ body {
 
 .slider {
     
-    width: 466px;
+    width: 45.5vw;
     margin: auto;
     overflow: hidden;
 }
@@ -18,7 +18,7 @@ body {
 
 .slides img {
     display: block;
-    max-width: 100%;
+    width: 45.5vw;
     object-fit: contain;
     
 }
@@ -58,7 +58,7 @@ input[name="slider-control"] {
 
 .controls {
     display: flex;
-    height: 20px;
+    height: 1.25rem;
     /* gap: 5px; */
     /* float: right; */
     align-items: center;
@@ -66,8 +66,8 @@ input[name="slider-control"] {
 }
 
 .control {
-    width: 10px;
-    height: 10px;
+    width: 1.06vw;
+    height: 1.06vw;
     background-color: #6EA3CA;
     border-radius: 50%;
     cursor: pointer;
@@ -78,8 +78,8 @@ input[name="slider-control"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 25px;
-    height: 25px;
+    width: 1.56rem;
+    height: 1.56rem;
     cursor: pointer;
 }
 
@@ -128,7 +128,7 @@ input[name="slider-control"] {
     width: 50%;
     overflow: hidden;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 1.48vw;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -165,4 +165,64 @@ input[name="slider-control"] {
     transform: translateX(-400%);
 }
 
+@media (max-width: 1024px) {
+    .slider {
+        width: 29.125rem;
+    }
 
+    .slides img {
+        width: 29.125rem;
+    }
+
+    .control {
+        width: 0.68rem;
+        height: 0.68rem;
+    }
+
+    .captions {
+        font-size: 0.94rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .controls-and-captions {
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .captions {
+        align-self: baseline;
+        margin-top: 15px;
+    }
+
+    .slider {
+        width: 60.67vw;
+    }
+
+    .slides img {
+        width: 60.67vw;
+    }
+
+    .control {
+        width: 1.41vw;
+        height: 1.41vw;
+        min-width: 0.48rem;
+        min-height: 0.48rem;
+    }
+
+    .captions {
+        font-size: 1.97vw;
+    }
+
+    .control-wrap {
+        width: 3.25vw;
+        height: 3.24vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .captions {
+        font-size: 0.73rem;
+    }
+}
