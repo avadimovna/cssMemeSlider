@@ -1,0 +1,224 @@
+body {
+    background-color: #25282A;
+}
+
+.slider {
+    
+    width: 45.5vw;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+    
+}
+
+.slides img {
+    display: block;
+    width: 45.5vw;
+    object-fit: contain;
+    
+}
+
+.slide {
+    width: 100%;
+    flex: 0 0 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #302f2f;
+    box-shadow: 0 0.31rem 0.31rem #1a1a1a;
+}
+
+input[name="slider-control"] {
+    display: none;
+}
+
+#slide1:checked ~ .slides {
+    transform: translateX(0%);
+}
+
+#slide2:checked ~ .slides {
+    transform: translateX(-100%);
+}
+
+#slide3:checked ~ .slides {
+    transform: translateX(-200%);
+}
+
+#slide4:checked ~ .slides {
+    transform: translateX(-300%);
+}
+
+#slide5:checked ~ .slides {
+    transform: translateX(-400%);
+}
+
+.controls {
+    display: flex;
+    height: 1.25rem;
+    align-items: center;
+}
+
+.control {
+    width: 1.06vw;
+    height: 1.06vw;
+    background-color: #6EA3CA;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+}
+
+.control-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.56rem;
+    height: 1.9rem;
+    cursor: pointer;
+}
+
+/* .control-wrap label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer; 
+} */
+
+
+.control-wrap:hover .control {
+    background-color: #ffffff; 
+}
+
+.control-wrap:active .control {
+    background-color: rgb(177, 177, 177);
+}
+
+
+#slide1:checked ~ .controls-and-captions .control-wrap:hover .control,
+#slide2:checked ~ .controls-and-captions .control-wrap:hover .control,
+#slide3:checked ~ .controls-and-captions .control-wrap:hover .control,
+#slide4:checked ~ .controls-and-captions .control-wrap:hover .control,
+#slide5:checked ~ .controls-and-captions .control-wrap:hover .control {
+    box-shadow: inset 0 0 0 0.062rem #ffffff;
+}
+
+.slider input[id="slide1"]:checked ~ .controls-and-captions .controls label[for="slide1"] .control,
+.slider input[id="slide2"]:checked ~ .controls-and-captions .controls label[for="slide2"] .control,
+.slider input[id="slide3"]:checked ~ .controls-and-captions .controls label[for="slide3"] .control,
+.slider input[id="slide4"]:checked ~ .controls-and-captions .controls label[for="slide4"] .control,
+.slider input[id="slide5"]:checked ~ .controls-and-captions .controls label[for="slide5"] .control {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 0.062rem #6EA3CA;
+}
+
+.controls-and-captions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    margin-top: 1.25rem;
+}
+.captions {
+    width: 50%;
+    overflow: hidden;
+    color: #ffffff;
+    font-size: 1.48vw;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.caption-slide {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.caption {
+    width: 100%;
+    flex: 0 0 100%;
+    text-align: left;
+}
+
+#slide1:checked ~ .controls-and-captions .captions .caption-slide {
+    transform: translateX(0%);
+}
+
+#slide2:checked ~ .controls-and-captions .captions .caption-slide {
+    transform: translateX(-100%);
+}
+
+#slide3:checked ~ .controls-and-captions .captions .caption-slide {
+    transform: translateX(-200%);
+}
+
+#slide4:checked ~ .controls-and-captions .captions .caption-slide {
+    transform: translateX(-300%);
+}
+
+#slide5:checked ~ .controls-and-captions .captions .caption-slide {
+    transform: translateX(-400%);
+}
+
+@media (max-width: 1024px) {
+    .slider {
+        width: 29.125rem;
+    }
+
+    .slides img {
+        width: 29.125rem;
+    }
+
+    .control {
+        width: 0.68rem;
+        height: 0.68rem;
+    }
+
+    .captions {
+        font-size: 0.94rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .controls-and-captions {
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 0.937rem;
+    }
+
+    .captions {
+        align-self: baseline;
+        margin-top: 0.937rem;
+    }
+
+    .slider {
+        width: 60.67vw;
+    }
+
+    .slides img {
+        width: 60.67vw;
+    }
+
+    .control {
+        width: 1.41vw;
+        height: 1.41vw;
+        min-width: 0.48rem;
+        min-height: 0.48rem;
+    }
+
+    .captions {
+        font-size: 1.97vw;
+    }
+
+    .control-wrap {
+        width: 3.25vw;
+        height: 3.45vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .captions {
+        font-size: 0.73rem;
+    }
+}
